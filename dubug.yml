@@ -1,0 +1,8 @@
+---
+- hosts: all
+  vars:
+    pkg_name: jenkins
+  tasks:
+  - name: debug
+    debug:
+      var: pkg_name

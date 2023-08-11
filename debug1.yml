@@ -1,0 +1,11 @@
+---
+- hosts: all
+  vars:
+    name:
+      - arjun
+      - surya
+  tasks:
+  - name: debug
+    debug:
+      var: name
+

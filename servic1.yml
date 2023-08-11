@@ -1,0 +1,13 @@
+- hosts: arjun
+  vars:
+    pkg_name: httpd
+  tasks: 
+  - name: creating the service
+    ansible.builtin.yum:
+      name:  "{{ pkg_name }}"
+      state: latest
+
+  - name: start the service
+    ansible.builtin.service:
+      name: "{{ pkg_name }}"
+      state: started   

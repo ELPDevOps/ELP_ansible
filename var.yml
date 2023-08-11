@@ -1,0 +1,13 @@
+---
+- name: 'this playbook is to Create user'
+  hosts: elp
+  become: true
+  gather_facts: yes
+  vars:
+    user_name: elp
+    
+  tasks:
+  - name: 'This task is refers to Create users'
+    user:
+      name: "{{ user_name }}"
+...

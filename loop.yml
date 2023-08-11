@@ -1,0 +1,27 @@
+---
+- name: 'this playbook is to Create user'
+  hosts: elp
+  become: true
+  gather_facts: yes
+  vars:
+    user_name:
+      - user1
+      - user2
+      - user3
+      
+
+  tasks:
+  - name: 'This task is refers to Create users'
+    user:
+      name: "{{ item }}"
+      state: absent
+    loop: "{{ user_name }}"
+    register: created_users
+
+
+  - name: debug
+    debug:
+      var: created_users
+...
+
+

@@ -1,0 +1,11 @@
+---
+- name: 'this playbook is to Create user'
+  hosts: elp
+  become: true
+  gather_facts: yes
+  tasks:
+  - name: 'This task is refers to Create users'
+    user:
+      name: test2
+      state: present
+...

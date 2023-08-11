@@ -1,0 +1,11 @@
+- hosts: elp
+  tasks: 
+  - name: creating the service
+    ansible.builtin.yum:
+      name: httpd
+      state: latest
+
+  - name: start the service
+    ansible.builtin.service:
+      name: httpd 
+      state: started   
