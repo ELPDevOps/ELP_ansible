@@ -1,0 +1,20 @@
+---
+- hosts: all
+  vars:
+    env_value: dev
+    pkg_name: httpd
+      
+  tasks:
+    - name: this is for dev env
+      yum:
+        name: "{{ pkg_name }}"
+        state: "{{ pkg_state }}"
+      when: ( env_value == "dev" ) and ( pkg_state == "absent" )
+
+
+    - name: this task is for prod
+      yum:
+        name: nginx
+        state: absent
+      when: env_value == "prod"
+    
